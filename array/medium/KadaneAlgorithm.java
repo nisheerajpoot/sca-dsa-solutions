@@ -1,4 +1,4 @@
-package array.easy;
+package array.medium;
 
 // Problem: Maximum Subarray Sum (Kadane’s)
 // Platform: LeetCode

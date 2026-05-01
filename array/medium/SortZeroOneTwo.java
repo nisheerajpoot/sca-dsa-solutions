@@ -1,4 +1,4 @@
-package array.easy;
+package array.medium;
 
 // Problem: Sort 0, 1 and 2
 // Platform: LeetCode

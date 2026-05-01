@@ -1,4 +1,4 @@
-package array.easy;
+package array.medium;
 
 // Problem: Rotate Array by K Steps
 // Platform: LeetCode

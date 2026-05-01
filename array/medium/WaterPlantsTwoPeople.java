@@ -1,4 +1,4 @@
-package array.easy;
+package array.medium;
 
 // Problem: Water Plants II (2 People)
 // Platform: LeetCode
