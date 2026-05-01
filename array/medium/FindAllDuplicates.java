@@ -2,25 +2,24 @@ package array.medium;
 
 // Problem: Find Multiple Duplicates
 // Platform: GeeksforGeeks
-// Approach: Hashing
+// Approach: Index Mapping
 // Time Complexity: O(n)
-// Space Complexity: O(n)
+// Space Complexity: O(1)
 
-import java.util.HashSet;
+ 
 
-public class FindAllDuplicates {
+public class FindAllDuplicates { 
     public static void main(String[] args) {
         int[] arr = {1,2,3,1,3,6,6};
-
-        HashSet<Integer> set = new HashSet<>();
-        HashSet<Integer> duplicates = new HashSet<>();
-
-        for(int num : arr){
-            if(!set.add(num)){
-                duplicates.add(num);
+        
+        for(int i=0;i<arr.length;i++){
+            int x=arr[i]%arr.length;
+            arr[x]=arr[x]+arr.length;
+        }
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]/arr.length>=2){
+                System.out.println(i);
             }
         }
-
-        System.out.println("Duplicates: " + duplicates);
     }
 }

@@ -18,7 +18,7 @@ public class MaxSubarraySum {
             for(int j = i; j < arr.length; j++){
                 currentSum += arr[j];
                 maxSum = Math.max(maxSum, currentSum);
-            }
+            } 
         }
 
         System.out.println("Maximum Subarray Sum = " + maxSum);
