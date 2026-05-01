@@ -1,4 +1,4 @@
-package array.easy;
+package array.medium;
 
 // Problem: Majority Element
 // Platform: LeetCode

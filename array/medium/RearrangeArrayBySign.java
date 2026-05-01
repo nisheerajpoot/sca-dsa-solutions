@@ -1,4 +1,4 @@
-package array.easy;
+package array.medium;
 
 // Problem: Rearrange Array Elements by Sign
 // Platform: LeetCode
