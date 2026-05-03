@@ -1,4 +1,4 @@
-package string.easy;
+package string.medium;
 
 // Problem: Longest Repeating Character Replacement
 // Platform: LeetCode
