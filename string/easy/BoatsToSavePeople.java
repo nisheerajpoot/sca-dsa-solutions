@@ -1,4 +1,4 @@
-package string.hard;
+package string.easy;
 
 // Problem: Boats to Save People
 // Platform: LeetCode
