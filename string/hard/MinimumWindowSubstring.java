@@ -1,4 +1,4 @@
-package array.hard;
+package string.hard;
 
 // Problem: Minimum Window Substring
 // Platform: LeetCode
@@ -20,7 +20,7 @@ public class MinimumWindowSubstring {
 
         int[] freq = new int[128];
 
-        // store frequency of t
+     
         for (int i = 0; i < t.length(); i++) {
             freq[t.charAt(i)]++;
         }
@@ -33,14 +33,12 @@ public class MinimumWindowSubstring {
 
         while (right < s.length()) {
 
-            // expand window
             if (freq[s.charAt(right)] > 0) {
                 count--;
             }
             freq[s.charAt(right)]--;
             right++;
 
-            // shrink window
             while (count == 0) {
 
                 if (right - left < minLen) {
@@ -56,7 +54,6 @@ public class MinimumWindowSubstring {
             }
         }
 
-        // result
         if (minLen == Integer.MAX_VALUE) {
             System.out.println("");
         } else {
