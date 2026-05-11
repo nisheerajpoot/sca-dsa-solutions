@@ -1,4 +1,4 @@
-package string.medium;
+package array.medium;
 
 // Problem: Boats to Save People
 // Platform: LeetCode
