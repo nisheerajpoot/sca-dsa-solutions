@@ -1,27 +1,26 @@
 package array.easy;
 
-// Problem: Find Missing Number
-// Platform: LeetCode
-// Approach: Sum Formula
-// Time Complexity: O(n)
-// Space Complexity: O(1)
-
 public class FindMissingNumber {
-    public static void main(String[] args) {
 
-        int[] arr = {1, 2, 3, 5}; 
-
-        int n = 5; // total numbers (1 to n)
-
+    public static int missingNumber(int[] arr, int n) {
         int expectedSum = n * (n + 1) / 2;
 
         int actualSum = 0;
-        for(int num : arr){
+        for (int num : arr) {
             actualSum += num;
         }
 
-        int missing = expectedSum - actualSum;
+        return expectedSum - actualSum;
+    }
 
-        System.out.println("Missing number is: " + missing);
+    public static void main(String[] args) {
+
+        int[] arr = {1, 2, 3, 5};
+
+        int n = 5;
+
+        int result = missingNumber(arr, n);
+
+        System.out.println("Missing number is: " + result);
     }
 }

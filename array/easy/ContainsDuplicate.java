@@ -1,34 +1,28 @@
 package array.easy;
 
-// Problem: Contains Duplicate
-// Platform: LeetCode
-// Approach: Hashing
-// Time Complexity: O(n)
-// Space Complexity: O(n)
-
 import java.util.HashSet;
 
 public class ContainsDuplicate {
+
+    public static boolean containsDuplicate(int[] nums) {
+        HashSet<Integer> set = new HashSet<>();
+
+        for (int num : nums) {
+            if (set.contains(num)) {
+                return true;
+            }
+            set.add(num);
+        }
+
+        return false;
+    }
 
     public static void main(String[] args) {
 
         int[] nums = {1, 2, 3, 1};
 
-        HashSet<Integer> set = new HashSet<>();
+        boolean result = containsDuplicate(nums);
 
-        boolean found = false;
-
-        for (int i = 0; i < nums.length; i++) {
-
-            if (set.contains(nums[i])) {
-
-                found = true;
-                break;
-            }
-
-            set.add(nums[i]);
-        }
-
-        System.out.println(found);
+        System.out.println(result);
     }
 }

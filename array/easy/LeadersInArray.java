@@ -1,30 +1,38 @@
 package array.easy;
 
-// Problem: Leaders in an Array
-// Platform: GeeksforGeeks
-// Approach: Traverse from Right
-// Time Complexity: O(n)
-// Space Complexity: O(1)
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class LeadersInArray {
+
+    public static List<Integer> findLeaders(int[] arr) {
+        int n = arr.length;
+
+        List<Integer> result = new ArrayList<>();
+        int maxRight = arr[n - 1];
+
+        result.add(maxRight);
+
+        for (int i = n - 2; i >= 0; i--) {
+            if (arr[i] > maxRight) {
+                maxRight = arr[i];
+                result.add(maxRight);
+            }
+        }
+
+        Collections.reverse(result);
+        return result;
+    }
 
     public static void main(String[] args) {
 
         int[] arr = {16, 17, 4, 3, 5, 2};
 
-        int n = arr.length;
+        List<Integer> result = findLeaders(arr);
 
-        int maxRight = arr[n - 1];
-
-        // last element always leader
-        System.out.print(maxRight + " ");
-
-        // traverse from right
-        for(int i = n - 2; i >= 0; i--){
-            if(arr[i] > maxRight){
-                maxRight = arr[i];
-                System.out.print(maxRight + " ");
-            }
+        for (int x : result) {
+            System.out.print(x + " ");
         }
     }
 }

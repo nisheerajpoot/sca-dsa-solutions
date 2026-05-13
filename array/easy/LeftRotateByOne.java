@@ -1,24 +1,25 @@
 package array.easy;
 
-// Problem: Left Rotate by One
-// Platform: GeeksforGeeks
-// Approach: Shifting
-// Time Complexity: O(n)
-// Space Complexity: O(1)
 
 public class LeftRotateByOne {
-    public static void main(String[] args) {
-        int[] arr = {1,2,3,4,5};
 
+    public static void leftRotate(int[] arr) {
         int first = arr[0];
 
-        for(int i = 0; i < arr.length - 1; i++){
-            arr[i] = arr[i+1];
+        for (int i = 0; i < arr.length - 1; i++) {
+            arr[i] = arr[i + 1];
         }
 
         arr[arr.length - 1] = first;
+    }
 
-        for(int num : arr){
+    public static void main(String[] args) {
+
+        int[] arr = {1, 2, 3, 4, 5};
+
+        leftRotate(arr);
+
+        for (int num : arr) {
             System.out.print(num + " ");
         }
     }

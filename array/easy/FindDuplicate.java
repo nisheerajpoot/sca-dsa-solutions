@@ -1,24 +1,27 @@
 package array.easy;
 
-// Problem: Find One Duplicate
-// Platform: LeetCode
-// Approach: Sorting
-// Time Complexity: O(n log n)
-// Space Complexity: O(1)
-
 import java.util.Arrays;
 
 public class FindDuplicate {
-    public static void main(String[] args) {
-        int[] arr = {1,3,4,2,2};
 
+    public static int findDuplicate(int[] arr) {
         Arrays.sort(arr);
 
-        for(int i = 0; i < arr.length - 1; i++){
-            if(arr[i] == arr[i+1]){
-                System.out.println("Duplicate = " + arr[i]);
-                break;
+        for (int i = 0; i < arr.length - 1; i++) {
+            if (arr[i] == arr[i + 1]) {
+                return arr[i];
             }
         }
+
+        return -1;
+    }
+
+    public static void main(String[] args) {
+
+        int[] arr = {1, 3, 4, 2, 2};
+
+        int result = findDuplicate(arr);
+
+        System.out.println("Duplicate = " + result);
     }
 }

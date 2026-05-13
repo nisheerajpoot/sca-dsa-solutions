@@ -1,41 +1,34 @@
 package array.easy;
 
-// Problem: Find Smallest Letter Greater Than Target
-// Platform: LeetCode
-// Approach: Binary Search
-// Time Complexity: O(log n)
-// Space Complexity: O(1)
-
 public class FindSmallestLetterGreaterThanTarget {
 
-    public static void main(String[] args) {
-
-        char[] letters = {'c', 'f', 'j'};
-
-        char target = 'a';
-
+    public static char nextGreatestLetter(char[] letters, char target) {
         int left = 0;
         int right = letters.length - 1;
 
         char ans = letters[0];
 
         while (left <= right) {
-
-            int mid = (left + right) / 2;
+            int mid = left + (right - left) / 2;
 
             if (letters[mid] > target) {
-
                 ans = letters[mid];
-
                 right = mid - 1;
-            }
-
-            else {
-
+            } else {
                 left = mid + 1;
             }
         }
 
-        System.out.println(ans);
+        return ans;
+    }
+
+    public static void main(String[] args) {
+
+        char[] letters = {'c', 'f', 'j'};
+        char target = 'a';
+
+        char result = nextGreatestLetter(letters, target);
+
+        System.out.println(result);
     }
 }
