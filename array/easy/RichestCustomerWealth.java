@@ -1,19 +1,8 @@
 package array.easy;
 
-// Problem: Richest Customer Wealth
-// Platform: LeetCode
-// Approach: Row Sum + Max
-// Time Complexity: O(n * m)
-// Space Complexity: O(1)
-
 public class RichestCustomerWealth {
 
-    public static void main(String[] args) {
-
-        int[][] accounts = {
-            {1, 2, 3},
-            {3, 2, 1}
-        };
+    public static int maximumWealth(int[][] accounts) {
 
         int maxWealth = 0;
 
@@ -25,11 +14,21 @@ public class RichestCustomerWealth {
                 currentCustomerWealth += accounts[i][j];
             }
 
-            if (currentCustomerWealth > maxWealth) {
-                maxWealth = currentCustomerWealth;
-            }
+            maxWealth = Math.max(maxWealth, currentCustomerWealth);
         }
 
-        System.out.println("Richest Customer Wealth = " + maxWealth);
+        return maxWealth;
+    }
+
+    public static void main(String[] args) {
+
+        int[][] accounts = {
+            {1, 2, 3},
+            {3, 2, 1}
+        };
+
+        int result = maximumWealth(accounts);
+
+        System.out.println("Richest Customer Wealth = " + result);
     }
 }

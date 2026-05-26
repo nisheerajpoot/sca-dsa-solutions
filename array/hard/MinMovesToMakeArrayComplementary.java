@@ -1,17 +1,8 @@
 package array.hard;
 
-// Problem: Minimum Moves to Make Array Complementary
-// Platform: LeetCode
-// Approach: Difference Array + Range Contribution
-// Time Complexity: O(n + limit)
-// Space Complexity: O(limit)
-
 public class MinMovesToMakeArrayComplementary {
 
-    public static void main(String[] args) {
-
-        int[] nums = {1, 2, 4, 3};
-        int limit = 4;
+    public static int minMoves(int[] nums, int limit) {
 
         int n = nums.length;
 
@@ -44,6 +35,17 @@ public class MinMovesToMakeArrayComplementary {
             ans = Math.min(ans, curr);
         }
 
-        System.out.println(ans);
+        return ans;
+    }
+
+    public static void main(String[] args) {
+
+        int[] nums = {1, 2, 4, 3};
+
+        int limit = 4;
+
+        int result = minMoves(nums, limit);
+
+        System.out.println(result);
     }
 }

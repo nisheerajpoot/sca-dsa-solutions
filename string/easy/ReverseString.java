@@ -1,21 +1,12 @@
 package string.easy;
 
-// Problem: Reverse String
-// Platform: LeetCode
-// Approach: Two Pointer
-// Time Complexity: O(n)
-// Space Complexity: O(1)
-
 public class ReverseString {
 
-    public static void main(String[] args) {
-
-        char[] s = {'h', 'e', 'l', 'l', 'o'};
+    public static void reverseString(char[] s) {
 
         int left = 0;
         int right = s.length - 1;
 
-    
         while (left < right) {
 
             char temp = s[left];
@@ -25,6 +16,13 @@ public class ReverseString {
             left++;
             right--;
         }
+    }
+
+    public static void main(String[] args) {
+
+        char[] s = {'h', 'e', 'l', 'l', 'o'};
+
+        reverseString(s);
 
         for (char ch : s) {
             System.out.print(ch);

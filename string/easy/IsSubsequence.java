@@ -1,17 +1,8 @@
 package string.easy;
 
-// Problem: Is Subsequence
-// Platform: LeetCode
-// Approach: Two Pointer
-// Time Complexity: O(n)
-// Space Complexity: O(1)
-
 public class IsSubsequence {
 
-    public static void main(String[] args) {
-
-        String s = "abc";
-        String t = "ahbgdc";
+    public static boolean isSubsequence(String s, String t) {
 
         int i = 0;
         int j = 0;
@@ -25,6 +16,16 @@ public class IsSubsequence {
             j++;
         }
 
-        System.out.println(i == s.length()); 
+        return i == s.length();
+    }
+
+    public static void main(String[] args) {
+
+        String s = "abc";
+        String t = "ahbgdc";
+
+        boolean result = isSubsequence(s, t);
+
+        System.out.println(result);
     }
 }

@@ -1,19 +1,11 @@
 package string.hard;
 
-// Problem: Text Justification
-// Platform: LeetCode
-// Approach: Greedy + Simulation
-// Time Complexity: O(n)
-// Space Complexity: O(n)
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TextJustification {
 
-    public static void main(String[] args) {
-
-        String[] words = {"This", "is", "an", "example", "of", "text", "justification."};
-        int maxWidth = 16;
+    public static List<String> fullJustify(String[] words, int maxWidth) {
 
         List<String> result = new ArrayList<>();
 
@@ -24,30 +16,33 @@ public class TextJustification {
             int j = i;
             int lineLength = 0;
 
-            // Step 1: find how many words fit in one line
-            while (j < words.length && lineLength + words[j].length() + (j - i) <= maxWidth) {
+            while (j < words.length &&
+                   lineLength + words[j].length() + (j - i) <= maxWidth) {
+
                 lineLength += words[j].length();
                 j++;
             }
 
             int gaps = j - i - 1;
-            String line = "";
 
-            // Step 2: last line OR single word → left justified
+            StringBuilder line = new StringBuilder();
+
             if (j == words.length || gaps == 0) {
 
                 for (int k = i; k < j; k++) {
-                    line += words[k];
-                    if (k < j - 1) line += " ";
+
+                    line.append(words[k]);
+
+                    if (k < j - 1) {
+                        line.append(" ");
+                    }
                 }
 
-                // fill remaining spaces
                 while (line.length() < maxWidth) {
-                    line += " ";
+                    line.append(" ");
                 }
             }
 
-            // Step 3: fully justified
             else {
 
                 int totalSpaces = maxWidth - lineLength;
@@ -56,27 +51,41 @@ public class TextJustification {
 
                 for (int k = i; k < j; k++) {
 
-                    line += words[k];
+                    line.append(words[k]);
 
                     if (k < j - 1) {
 
                         for (int s = 0; s < spaceEach; s++) {
-                            line += " ";
+                            line.append(" ");
                         }
 
                         if (extra > 0) {
-                            line += " ";
+                            line.append(" ");
                             extra--;
                         }
                     }
                 }
             }
 
-            result.add(line);
+            result.add(line.toString());
+
             i = j;
         }
 
-        // print result
+        return result;
+    }
+
+    public static void main(String[] args) {
+
+        String[] words = {
+                "This", "is", "an", "example",
+                "of", "text", "justification."
+        };
+
+        int maxWidth = 16;
+
+        List<String> result = fullJustify(words, maxWidth);
+
         for (String str : result) {
             System.out.println("\"" + str + "\"");
         }

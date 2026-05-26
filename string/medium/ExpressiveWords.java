@@ -1,12 +1,59 @@
 package string.medium;
 
-// Problem: Expressive Words
-// Platform: LeetCode
-// Approach: Two Pointer
-// Time Complexity: O(n * m)
-// Space Complexity: O(1)
-
 public class ExpressiveWords {
+
+    public static int expressiveWords(String s, String[] words) {
+
+        int count = 0;
+
+        for (String word : words) {
+
+            if (isStretchy(s, word)) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    public static boolean isStretchy(String s, String word) {
+
+        int i = 0;
+        int j = 0;
+
+        while (i < s.length() && j < word.length()) {
+
+            if (s.charAt(i) != word.charAt(j)) {
+                return false;
+            }
+
+            char ch = s.charAt(i);
+
+            int count1 = 0;
+
+            while (i < s.length() && s.charAt(i) == ch) {
+                count1++;
+                i++;
+            }
+
+            int count2 = 0;
+
+            while (j < word.length() && word.charAt(j) == ch) {
+                count2++;
+                j++;
+            }
+
+            if (count1 < count2) {
+                return false;
+            }
+
+            if (count1 > count2 && count1 < 3) {
+                return false;
+            }
+        }
+
+        return i == s.length() && j == word.length();
+    }
 
     public static void main(String[] args) {
 
@@ -14,61 +61,8 @@ public class ExpressiveWords {
 
         String[] words = {"hello", "hi", "helo"};
 
-        int count = 0;
+        int result = expressiveWords(s, words);
 
-        for (String word : words) {
-
-            int i = 0;
-            int j = 0;
-
-            boolean valid = true;
-
-            while (i < s.length() && j < word.length()) {
-
-                if (s.charAt(i) != word.charAt(j)) {
-                    valid = false;
-                    break;
-                }
-
-                int count1 = 0;
-
-                while (i < s.length() &&
-                       s.charAt(i) == s.charAt(i == 0 ? 0 : i - 1)) {
-
-                    count1++;
-                    i++;
-                }
-
-                int count2 = 0;
-
-                while (j < word.length() &&
-                       word.charAt(j) == word.charAt(j == 0 ? 0 : j - 1)) {
-
-                    count2++;
-                    j++;
-                }
-
-                // invalid cases
-                if (count1 < count2) {
-                    valid = false;
-                    break;
-                }
-
-                if (count1 > count2 && count1 < 3) {
-                    valid = false;
-                    break;
-                }
-            }
-
-            if (i != s.length() || j != word.length()) {
-                valid = false;
-            }
-
-            if (valid) {
-                count++;
-            }
-        }
-
-        System.out.println(count); 
+        System.out.println(result);
     }
 }

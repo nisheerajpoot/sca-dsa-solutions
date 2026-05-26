@@ -1,17 +1,12 @@
 package array.medium;
 
-// Problem: Bag of Tokens
-// Platform: LeetCode
-// Approach: Sorting + Greedy Two Pointer
-// Time Complexity: O(n log n)
-// Space Complexity: O(1)
-
 import java.util.Arrays;
 
 public class BagOfTokens {
 
     public static void main(String[] args) {
-        int [] tokens={100,200,300,400};
+
+        int[] tokens = {100, 200, 300, 400};
         int power = 200;
 
         Arrays.sort(tokens);
@@ -46,8 +41,5 @@ public class BagOfTokens {
                 break;
             }
         }
-
-        System.out.println("Maximum Score = " + maxScore);
     }
 }
-   

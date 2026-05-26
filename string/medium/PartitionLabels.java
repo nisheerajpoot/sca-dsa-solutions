@@ -1,22 +1,19 @@
 package string.medium;
 
-// Problem: Partition Labels
-// Platform: LeetCode
-// Approach: Greedy + Two Pointer
-// Time Complexity: O(n)
-// Space Complexity: O(1)
+import java.util.ArrayList;
+import java.util.List;
 
 public class PartitionLabels {
 
-    public static void main(String[] args) {
-
-        String s = "ababcbacadefegdehijhklij";
+    public static List<Integer> partitionLabels(String s) {
 
         int[] lastIndex = new int[26];
 
         for (int i = 0; i < s.length(); i++) {
             lastIndex[s.charAt(i) - 'a'] = i;
         }
+
+        List<Integer> result = new ArrayList<>();
 
         int start = 0;
         int end = 0;
@@ -29,12 +26,23 @@ public class PartitionLabels {
 
                 int length = end - start + 1;
 
-                System.out.print(length + " ");
+                result.add(length);
 
                 start = i + 1;
             }
         }
 
-       
+        return result;
+    }
+
+    public static void main(String[] args) {
+
+        String s = "ababcbacadefegdehijhklij";
+
+        List<Integer> result = partitionLabels(s);
+
+        for (int num : result) {
+            System.out.print(num + " ");
+        }
     }
 }

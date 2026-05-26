@@ -1,18 +1,10 @@
 package string.medium;
 
-// Problem: Unique Length-3 Palindromic Subsequences
-// Platform: LeetCode
-// Approach: Hashing + First/Last Occurrence
-// Time Complexity: O(26 * n)
-// Space Complexity: O(1)
-
 import java.util.HashSet;
 
 public class UniqueLength3PalindromicSubsequences {
 
-    public static void main(String[] args) {
-
-        String s = "aabca";
+    public static int countPalindromicSubsequence(String s) {
 
         int count = 0;
 
@@ -33,6 +25,15 @@ public class UniqueLength3PalindromicSubsequences {
             }
         }
 
-        System.out.println(count);
+        return count;
+    }
+
+    public static void main(String[] args) {
+
+        String s = "aabca";
+
+        int result = countPalindromicSubsequence(s);
+
+        System.out.println(result);
     }
 }

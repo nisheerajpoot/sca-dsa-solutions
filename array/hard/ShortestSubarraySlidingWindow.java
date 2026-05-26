@@ -1,17 +1,8 @@
 package array.hard;
 
-// Problem: Shortest Subarray with Sum at Least K
-// Approach: Sliding Window
-// Condition: Works only for positive numbers
-// Time Complexity: O(n)
-// Space Complexity: O(1)
-
 public class ShortestSubarraySlidingWindow {
 
-    public static void main(String[] args) {
-
-        int[] nums = {2, 3, 1, 2, 4, 3};
-        int k = 7;
+    public static int shortestSubarray(int[] nums, int k) {
 
         int left = 0;
         int sum = 0;
@@ -24,18 +15,24 @@ public class ShortestSubarraySlidingWindow {
 
             while (sum >= k) {
 
-                minLength = Math.min(minLength,
-                                     right - left + 1);
+                minLength = Math.min(minLength, right - left + 1);
 
                 sum -= nums[left];
                 left++;
             }
         }
 
-        if (minLength == Integer.MAX_VALUE) {
-            System.out.println(0);
-        } else {
-            System.out.println(minLength);
-        }
+        return minLength == Integer.MAX_VALUE ? 0 : minLength;
+    }
+
+    public static void main(String[] args) {
+
+        int[] nums = {2, 3, 1, 2, 4, 3};
+
+        int k = 7;
+
+        int result = shortestSubarray(nums, k);
+
+        System.out.println(result);
     }
 }

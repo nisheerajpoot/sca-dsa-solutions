@@ -1,24 +1,15 @@
 package string.medium;
 
-// Problem: Maximum Number of Vowels in a Substring of Given Length K
-// Platform: LeetCode
-// Approach: Sliding Window (Fixed Size)
-// Time Complexity: O(n)
-// Space Complexity: O(1)
-
 public class MaxVowelsSubstring {
 
-    public static void main(String[] args) {
-
-        String s = "abciiiidef";
-        int k = 5;
+    public static int maxVowels(String s, int k) {
 
         int maxVowels = 0;
         int currentVowels = 0;
 
         for (int i = 0; i < k; i++) {
-            char ch = s.charAt(i);
-            if (isVowel(ch)) {
+
+            if (isVowel(s.charAt(i))) {
                 currentVowels++;
             }
         }
@@ -35,16 +26,29 @@ public class MaxVowelsSubstring {
                 currentVowels--;
             }
 
-            if (currentVowels > maxVowels) {
-                maxVowels = currentVowels;
-            }
+            maxVowels = Math.max(maxVowels, currentVowels);
         }
 
-        System.out.println(maxVowels); 
+        return maxVowels;
     }
 
     public static boolean isVowel(char ch) {
-        return ch == 'a' || ch == 'e' || ch == 'i' ||
-               ch == 'o' || ch == 'u';
+
+        return ch == 'a' ||
+               ch == 'e' ||
+               ch == 'i' ||
+               ch == 'o' ||
+               ch == 'u';
+    }
+
+    public static void main(String[] args) {
+
+        String s = "abciiiidef";
+
+        int k = 5;
+
+        int result = maxVowels(s, k);
+
+        System.out.println(result);
     }
 }

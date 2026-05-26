@@ -1,17 +1,8 @@
 package string.medium;
 
-// Problem: Permutation in String
-// Platform: LeetCode
-// Approach: Sliding Window + Hashing
-// Time Complexity: O(n)
-// Space Complexity: O(1)
-
 public class PermutationInString {
 
-    public static void main(String[] args) {
-
-        String s1 = "ab";
-        String s2 = "eidbaooo";
+    public static boolean checkInclusion(String s1, String s2) {
 
         int[] arr1 = new int[26];
         int[] arr2 = new int[26];
@@ -41,11 +32,21 @@ public class PermutationInString {
             }
 
             if (same) {
-                System.out.println(true);
-                return;
+                return true;
             }
         }
 
-        System.out.println(false);
+        return false;
+    }
+
+    public static void main(String[] args) {
+
+        String s1 = "ab";
+
+        String s2 = "eidbaooo";
+
+        boolean result = checkInclusion(s1, s2);
+
+        System.out.println(result);
     }
 }

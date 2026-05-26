@@ -1,17 +1,8 @@
 package string.easy;
 
-// Problem: Reverse Vowels of a String
-// Platform: LeetCode
-// Approach: Two Pointer
-// Pattern: Opposite Direction Pointer
-// Time Complexity: O(n)
-// Space Complexity: O(1)
-
 public class ReverseVowels {
 
-    public static void main(String[] args) {
-
-        String s = "leetcode";
+    public static String reverseVowels(String s) {
 
         char[] arr = s.toCharArray();
 
@@ -20,15 +11,11 @@ public class ReverseVowels {
 
         while (left < right) {
 
-            while (left < right &&
-                  !isVowel(arr[left])) {
-
+            while (left < right && !isVowel(arr[left])) {
                 left++;
             }
 
-            while (left < right &&
-                  !isVowel(arr[right])) {
-
+            while (left < right && !isVowel(arr[right])) {
                 right--;
             }
 
@@ -40,7 +27,7 @@ public class ReverseVowels {
             right--;
         }
 
-        System.out.println(new String(arr));
+        return new String(arr);
     }
 
     public static boolean isVowel(char ch) {
@@ -52,5 +39,14 @@ public class ReverseVowels {
                ch == 'i' ||
                ch == 'o' ||
                ch == 'u';
+    }
+
+    public static void main(String[] args) {
+
+        String s = "leetcode";
+
+        String result = reverseVowels(s);
+
+        System.out.println(result);
     }
 }

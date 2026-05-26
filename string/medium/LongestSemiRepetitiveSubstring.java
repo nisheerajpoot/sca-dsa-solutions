@@ -1,16 +1,8 @@
 package string.medium;
 
-// Problem: Longest Semi-Repetitive Substring
-// Platform: LeetCode
-// Approach: Sliding Window
-// Time Complexity: O(n)
-// Space Complexity: O(1)
-
 public class LongestSemiRepetitiveSubstring {
 
-    public static void main(String[] args) {
-
-        String s = "52233";
+    public static int longestSemiRepetitiveSubstring(String s) {
 
         int left = 0;
         int pairCount = 0;
@@ -34,6 +26,15 @@ public class LongestSemiRepetitiveSubstring {
             maxLength = Math.max(maxLength, right - left + 1);
         }
 
-        System.out.println(maxLength); 
+        return maxLength;
+    }
+
+    public static void main(String[] args) {
+
+        String s = "52233";
+
+        int result = longestSemiRepetitiveSubstring(s);
+
+        System.out.println(result);
     }
 }

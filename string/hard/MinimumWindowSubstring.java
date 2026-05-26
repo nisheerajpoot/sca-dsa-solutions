@@ -1,31 +1,21 @@
 package string.hard;
 
-// Problem: Minimum Window Substring
-// Platform: LeetCode
-// Approach: Sliding Window + HashMap
-// Time Complexity: O(n)
-// Space Complexity: O(1)
-
 public class MinimumWindowSubstring {
 
-    public static void main(String[] args) {
-
-        String s = "ADOBECODEBANC";
-        String t = "ABC";
+    public static String minWindow(String s, String t) {
 
         if (s.length() < t.length()) {
-            System.out.println("");
-            return;
+            return "";
         }
 
         int[] freq = new int[128];
 
-     
         for (int i = 0; i < t.length(); i++) {
             freq[t.charAt(i)]++;
         }
 
-        int left = 0, right = 0;
+        int left = 0;
+        int right = 0;
         int count = t.length();
 
         int minLen = Integer.MAX_VALUE;
@@ -36,6 +26,7 @@ public class MinimumWindowSubstring {
             if (freq[s.charAt(right)] > 0) {
                 count--;
             }
+
             freq[s.charAt(right)]--;
             right++;
 
@@ -47,17 +38,27 @@ public class MinimumWindowSubstring {
                 }
 
                 freq[s.charAt(left)]++;
+
                 if (freq[s.charAt(left)] > 0) {
                     count++;
                 }
+
                 left++;
             }
         }
 
-        if (minLen == Integer.MAX_VALUE) {
-            System.out.println("");
-        } else {
-            System.out.println(s.substring(start, start + minLen));
-        }
+        return minLen == Integer.MAX_VALUE
+                ? ""
+                : s.substring(start, start + minLen);
+    }
+
+    public static void main(String[] args) {
+
+        String s = "ADOBECODEBANC";
+        String t = "ABC";
+
+        String result = minWindow(s, t);
+
+        System.out.println(result);
     }
 }

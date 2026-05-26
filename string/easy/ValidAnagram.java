@@ -1,21 +1,11 @@
 package string.easy;
 
-// Problem: Valid Anagram
-// Platform: LeetCode
-// Approach: Hashing (Frequency Array)
-// Time Complexity: O(n)
-// Space Complexity: O(1)  // (26 characters)
-
 public class ValidAnagram {
 
-    public static void main(String[] args) {
-
-        String s = "anagram";
-        String t = "nagaram";
+    public static boolean isAnagram(String s, String t) {
 
         if (s.length() != t.length()) {
-            System.out.println(false);
-            return;
+            return false;
         }
 
         int[] freq = new int[26];
@@ -29,12 +19,22 @@ public class ValidAnagram {
         }
 
         for (int i = 0; i < 26; i++) {
+
             if (freq[i] != 0) {
-                System.out.println(false);
-                return;
+                return false;
             }
         }
 
-        System.out.println(true); 
+        return true;
+    }
+
+    public static void main(String[] args) {
+
+        String s = "anagram";
+        String t = "nagaram";
+
+        boolean result = isAnagram(s, t);
+
+        System.out.println(result);
     }
 }

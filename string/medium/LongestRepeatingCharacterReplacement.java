@@ -1,19 +1,11 @@
 package string.medium;
 
-// Problem: Longest Repeating Character Replacement
-// Platform: LeetCode
-// Approach: Sliding Window + Hashing
-// Time Complexity: O(n)
-// Space Complexity: O(1)  // (26 characters)
-
 public class LongestRepeatingCharacterReplacement {
 
-    public static void main(String[] args) {
-
-        String s = "AABABBA";
-        int k = 1;
+    public static int characterReplacement(String s, int k) {
 
         int[] freq = new int[26];
+
         int left = 0;
         int maxFreq = 0;
         int maxLength = 0;
@@ -27,11 +19,24 @@ public class LongestRepeatingCharacterReplacement {
             while ((right - left + 1) - maxFreq > k) {
 
                 freq[s.charAt(left) - 'A']--;
+
                 left++;
             }
 
             maxLength = Math.max(maxLength, right - left + 1);
         }
-        System.out.println(maxLength); 
+
+        return maxLength;
+    }
+
+    public static void main(String[] args) {
+
+        String s = "AABABBA";
+
+        int k = 1;
+
+        int result = characterReplacement(s, k);
+
+        System.out.println(result);
     }
 }

@@ -1,17 +1,8 @@
 package string.medium;
 
-// Problem: Shifting Letters
-// Platform: LeetCode
-// Approach: Prefix/Suffix Sum
-// Time Complexity: O(n)
-// Space Complexity: O(n)
-
 public class ShiftingLetters {
 
-    public static void main(String[] args) {
-
-        String s = "abc";
-        int[] shifts = {3, 5, 9};
+    public static String shiftingLetters(String s, int[] shifts) {
 
         int n = s.length();
 
@@ -25,11 +16,22 @@ public class ShiftingLetters {
 
             int move = shifts[i] % 26;
 
-            char ch = (char)((s.charAt(i) - 'a' + move) % 26 + 'a');
+            char ch = (char) ((s.charAt(i) - 'a' + move) % 26 + 'a');
 
             result[i] = ch;
         }
 
-        System.out.println(new String(result)); 
+        return new String(result);
+    }
+
+    public static void main(String[] args) {
+
+        String s = "abc";
+
+        int[] shifts = {3, 5, 9};
+
+        String result = shiftingLetters(s, shifts);
+
+        System.out.println(result);
     }
 }

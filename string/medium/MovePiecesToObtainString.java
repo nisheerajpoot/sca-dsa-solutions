@@ -1,18 +1,8 @@
 package string.medium;
 
-// Problem: Move Pieces to Obtain a String
-// Platform: LeetCode
-// Approach: Two Pointer
-// Pattern: Position Matching
-// Time Complexity: O(n)
-// Space Complexity: O(1)
-
 public class MovePiecesToObtainString {
 
-    public static void main(String[] args) {
-
-        String start = "_L__R__R_";
-        String target = "L______RR";
+    public static boolean canChange(String start, String target) {
 
         int i = 0;
         int j = 0;
@@ -30,34 +20,40 @@ public class MovePiecesToObtainString {
             }
 
             if (i == n && j == n) {
-                System.out.println(true);
-                return;
+                return true;
             }
 
             if (i == n || j == n) {
-                System.out.println(false);
-                return;
+                return false;
             }
 
             if (start.charAt(i) != target.charAt(j)) {
-                System.out.println(false);
-                return;
+                return false;
             }
 
             if (start.charAt(i) == 'L' && i < j) {
-                System.out.println(false);
-                return;
+                return false;
             }
 
             if (start.charAt(i) == 'R' && i > j) {
-                System.out.println(false);
-                return;
+                return false;
             }
 
             i++;
             j++;
         }
 
-        System.out.println(true);
+        return true;
+    }
+
+    public static void main(String[] args) {
+
+        String start = "_L__R__R_";
+
+        String target = "L______RR";
+
+        boolean result = canChange(start, target);
+
+        System.out.println(result);
     }
 }
