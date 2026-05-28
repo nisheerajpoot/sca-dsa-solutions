@@ -17,7 +17,6 @@ public class LongestValidParentheses {
 
             char ch = s.charAt(i);
 
-            // Opening bracket
             if (ch == '(') {
                 st.push(i);
             }
