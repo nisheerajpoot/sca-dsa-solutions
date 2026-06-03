@@ -42,7 +42,7 @@ public class SumOfSubarrayMinimums {
         }
 
         st.clear();
-
+// Next Smaller Element ka index[1,4,4,4]
         for(int i = n - 1; i >= 0; i--) {
 
             while(!st.isEmpty() && arr[st.peek()] >= arr[i]) {

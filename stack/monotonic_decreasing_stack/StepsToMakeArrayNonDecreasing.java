@@ -33,7 +33,7 @@ public class StepsToMakeArrayNonDecreasing {
             }
 
             ans = Math.max(ans, steps);
-
+            // [value, steps]
             st.push(new int[]{nums[i], steps});
         }
 
