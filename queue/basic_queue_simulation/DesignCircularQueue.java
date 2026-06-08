@@ -1,4 +1,4 @@
-package queue.basic_ueue_simulation;
+package queue.basic_queue_simulation;
 
 public class DesignCircularQueue {
 
