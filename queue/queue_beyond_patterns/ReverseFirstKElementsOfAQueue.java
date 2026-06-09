@@ -10,7 +10,6 @@ public class ReverseFirstKElementsOfAQueue {
       Platform : GFG
       Question : Reverse First K Elements of Queue
   
-
       Approach :
       Stack + Queue
 
